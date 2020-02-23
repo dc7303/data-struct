@@ -10,6 +10,10 @@ type Node struct {
 	val  int
 }
 
+func (n *Node) Value() int {
+	return n.val
+}
+
 type LinkedList struct {
 	root *Node
 	tail *Node
@@ -74,6 +78,10 @@ func (l *LinkedList) ToString() string {
 	result := "["
 
 	node := l.root
+	if node == nil {
+		return result + "]"
+	}
+
 	for node != nil {
 		result += (strconv.Itoa(node.val) + " ")
 		node = node.next
@@ -81,4 +89,12 @@ func (l *LinkedList) ToString() string {
 
 	result = result[:len(result)-1] + "]"
 	return result
+}
+
+func (l *LinkedList) GetRootNode() *Node {
+	return l.root
+}
+
+func (l *LinkedList) GetTailNode() *Node {
+	return l.tail
 }

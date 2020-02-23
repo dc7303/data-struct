@@ -6,7 +6,11 @@ import (
 )
 
 func main() {
-	listExample()
+	// 더블 링크드 리스트 예제
+	// listExample()
+
+	// 스택 예제
+	stackExample()
 }
 
 func listExample() {
@@ -27,4 +31,14 @@ func listExample() {
 	_, node = list.Get(7)
 	list.Remove(node)
 	fmt.Println(list.ToString())
+}
+
+func stackExample() {
+	stack := dataStruct.Stack{}
+	stack.Push(1)
+	stack.Push(2)
+	fmt.Println(stack.ToString())
+	val, node := stack.Pop()
+	fmt.Println(val, node.Value())
+	fmt.Println(stack.ToString())
 }
