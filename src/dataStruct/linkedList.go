@@ -40,7 +40,9 @@ func (l *LinkedList) Remove(target *Node) {
 	// }
 	if l.root == target {
 		l.root = l.root.next
-		l.root.pre = nil
+		if l.root != nil {
+			l.root.pre = nil
+		}
 		return
 	}
 
@@ -97,4 +99,8 @@ func (l *LinkedList) GetRootNode() *Node {
 
 func (l *LinkedList) GetTailNode() *Node {
 	return l.tail
+}
+
+func (l *LinkedList) IsEmpty() bool {
+	return l.GetRootNode() == nil
 }

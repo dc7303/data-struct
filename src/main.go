@@ -10,7 +10,10 @@ func main() {
 	// listExample()
 
 	// 스택 예제
-	stackExample()
+	// stackExample()
+
+	// 큐 예제
+	queueExample()
 }
 
 func listExample() {
@@ -41,4 +44,18 @@ func stackExample() {
 	val, node := stack.Pop()
 	fmt.Println(val, node.Value())
 	fmt.Println(stack.ToString())
+	val, node = stack.Pop()
+	fmt.Println(stack.ToString())
+}
+
+func queueExample() {
+	queue := dataStruct.Queue{}
+	queue.Push(1)
+	queue.Push(2)
+	fmt.Println(queue.ToString())
+	val, node := queue.Pop()
+	fmt.Println(val, node.Value())
+	fmt.Println(queue.ToString())
+	val, node = queue.Pop()
+	fmt.Println(queue.ToString())
 }

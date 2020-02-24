@@ -9,13 +9,24 @@ func (s *Stack) Push(val int) {
 	list.Append(val)
 }
 
-func (s *Stack) Pop() (int, Node) {
-	tail := s.list.GetTailNode()
-	reNode, reVal := *tail, (*tail).val
-	s.list.Remove(tail)
-	return reVal, reNode
+func (s *Stack) Pop() (int, *Node) {
+	list := &s.list
+	if list.IsEmpty() {
+		return 0, nil
+	}
+
+	tail := list.GetTailNode()
+	reVal, reNode := (*tail).val, *tail
+	list.Remove(tail)
+	return reVal, &reNode
+}
+
+func (s *Stack) IsEmpty() bool {
+	list := &s.list
+	return list.IsEmpty()
 }
 
 func (s *Stack) ToString() string {
-	return s.list.ToString()
+	list := &s.list
+	return list.ToString()
 }
