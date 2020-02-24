@@ -19,7 +19,13 @@ func main() {
 	// treeExample()
 
 	// 이진 트리 예제
-	binaryTreeExample()
+	// binaryTreeExample()
+
+	// 힙 예제
+	// heapExample()
+
+	// 맵 예제
+	mapExample()
 }
 
 func listExample() {
@@ -121,4 +127,33 @@ func binaryTreeExample() {
 	} else {
 		fmt.Printf("Not Found value = %d", findVal)
 	}
+}
+
+func heapExample() {
+	h := &dataStruct.Heap{}
+	h.Push(1)
+	h.Push(2)
+	h.Push(3)
+	h.Push(4)
+	h.Push(5)
+
+	fmt.Println(h.Pop())
+	fmt.Println(h.Pop())
+	fmt.Println(h.Pop())
+	fmt.Println(h.Pop())
+
+	h.PrintList()
+}
+
+func mapExample() {
+	hashMap := dataStruct.HashMap{}
+	hashMap.Put("Margurt", "최동철")
+	hashMap.Put("Domingo", "오세용")
+	hashMap.Put("NariYoo", "유나리")
+	hashMap.Put("NotFound404", "곽대종")
+
+	fmt.Println(hashMap.Get("Margurt"))
+	fmt.Println(hashMap.Get("Domingo"))
+	fmt.Println(hashMap.Get("NariYoo"))
+	fmt.Println(hashMap.Get("NotFound404"))
 }

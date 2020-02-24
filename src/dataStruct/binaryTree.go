@@ -53,6 +53,9 @@ func (b *BinaryTree) InitRoot(val int) {
 	}
 }
 
+/*
+O(log2N)
+*/
 func (b *BinaryTree) BinarySearchTree(val int) bool {
 	return b.root.Search(val)
 }
