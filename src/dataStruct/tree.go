@@ -41,6 +41,21 @@ func (t *Tree) DeepFirstSearch(recursive bool) {
 	}
 }
 
+func (t *Tree) BreadthFirstSearch() {
+	queue := []*TreeNode{}
+	queue = append(queue, t.root)
+
+	for len(queue) > 0 {
+		var first *TreeNode
+		first, queue = queue[0], queue[1:]
+
+		fmt.Printf("%d -> ", first.Value())
+		for j := 0; j < len(first.childs); j++ {
+			queue = append(queue, first.childs[j])
+		}
+	}
+}
+
 func recursiveDFS(node *TreeNode) {
 	fmt.Printf("%d -> ", node.val)
 

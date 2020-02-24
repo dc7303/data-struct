@@ -16,7 +16,10 @@ func main() {
 	// queueExample()
 
 	// 트리 예제
-	treeExample()
+	// treeExample()
+
+	// 이진 트리 예제
+	binaryTreeExample()
 }
 
 func listExample() {
@@ -69,6 +72,8 @@ func treeExample() {
 	tree.DeepFirstSearch(true)
 	fmt.Println()
 	tree.DeepFirstSearch(false)
+	fmt.Println()
+	tree.BreadthFirstSearch()
 }
 
 /*
@@ -94,5 +99,26 @@ func initTree(t *dataStruct.Tree) {
 			root.GetChilds()[i].AppendChild(val)
 			val++
 		}
+	}
+}
+
+func binaryTreeExample() {
+	tree := dataStruct.BinaryTree{}
+	tree.InitRoot(1)
+	root := tree.GetRoot()
+	root.AddNode(3)
+	root.AddNode(4)
+	root.AddNode(2)
+	root.AddNode(8)
+	root.AddNode(7)
+	root.AddNode(6)
+	root.AddNode(10)
+	root.AddNode(9)
+
+	findVal := 20
+	if tree.BinarySearchTree(findVal) {
+		fmt.Printf("Found value = %d", findVal)
+	} else {
+		fmt.Printf("Not Found value = %d", findVal)
 	}
 }
