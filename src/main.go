@@ -13,7 +13,10 @@ func main() {
 	// stackExample()
 
 	// 큐 예제
-	queueExample()
+	// queueExample()
+
+	// 트리 예제
+	treeExample()
 }
 
 func listExample() {
@@ -58,4 +61,38 @@ func queueExample() {
 	fmt.Println(queue.ToString())
 	val, node = queue.Pop()
 	fmt.Println(queue.ToString())
+}
+
+func treeExample() {
+	tree := dataStruct.Tree{}
+	initTree(&tree)
+	tree.DeepFirstSearch(true)
+	fmt.Println()
+	tree.DeepFirstSearch(false)
+}
+
+/*
+		   1
+		/  \ \
+	   2   3  4
+      /\  /\  /\
+	 5 6 7 8 9 10
+*/
+func initTree(t *dataStruct.Tree) {
+	val := 1
+	t.InitRoot(val)
+	val++
+
+	root := t.GetRoot()
+	for i := 0; i < 3; i++ {
+		root.AppendChild(val)
+		val++
+	}
+
+	for i := 0; i < len(root.GetChilds()); i++ {
+		for j := 0; j < 2; j++ {
+			root.GetChilds()[i].AppendChild(val)
+			val++
+		}
+	}
 }
