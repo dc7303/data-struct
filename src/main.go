@@ -104,7 +104,7 @@ func initTree(t *dataStruct.Tree) {
 
 func binaryTreeExample() {
 	tree := dataStruct.BinaryTree{}
-	tree.InitRoot(1)
+	tree.InitRoot(5)
 	root := tree.GetRoot()
 	root.AddNode(3)
 	root.AddNode(4)
